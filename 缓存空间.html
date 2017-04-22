@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        .buff{
+            width:100%;
+            height: 315px;
+        }
+        .buff ul{
+            width: 1000px;
+            height:100%;
+            margin:0 auto;
+
+        }
+        .buff a{
+            display: inline-block;
+            width:100%;;
+            height:100%;
+        }
+
+        .buff li{
+            text-align: center;
+            box-sizing: border-box;
+
+            padding: 0 0px;
+            width: 240px;
+            height: 185px;
+            float: left;
+            margin-top:65px;
+            position: relative;
+        }
+        .buff .img{
+            width: 131px;
+            height: 120px;
+            margin-left: 59px;
+            position: relative;
+        }
+
+        .buff  .navbox{
+            width: 131px;
+            height: 120px;
+            position: absolute;
+        }
+        .buff li:hover .navbox{
+            animation:shake 0.15s linear 3 0.4s;
+        }
+        @keyframes shake {
+            0% {
+                transform: translate(2px, 2px);
+            }
+            25% {
+                transform: translate(-2px, -2px);
+            }
+            50% {
+                transform: translate(0px, 0px);
+            }
+            75% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(-2px, 2px);
+            }
+        }
+        .buff .en{
+            width: 100%;
+            height: 12px;
+            line-height: 12px;
+            text-align: center;
+            color: #a69e9e;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+        .buff .cn{
+            margin-top:5px;
+            font-family: "微软雅黑";
+            width: 100%;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #282626;
+        }
+        .buff .line{
+            width: 1px;
+            height: 145px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background: #c3bcbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="buff">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <div class="img">
+                        <div class="navbox"></div>
+                    </div>
+                    <div class="en">Website design</div>
+                    <div class="cn">网站 · 设计</div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="img">
+                        <div class="navbox"></div>
+                    </div>
+                    <div class="en">wechat  application</div>
+                    <div class="cn">微信 · 运营</div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="img">
+                        <div class="navbox"></div>
+                    </div>
+                    <div class="en">IOS - WM - Android</div>
+                    <div class="cn">APP · 定制</div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="img">
+                        <div class="navbox"></div>
+                    </div>
+                    <div class="en">e-commercial</div>
+                    <div class="cn">关联 · 服务</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <img src="images/hezuo.png" alt="">
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+
+<script>
+    var navboxs=document.getElementsByClassName("navbox");
+    for (var i=0; i<navboxs.length;i++) {
+        navboxs[i].style.background="url(images/nav"+(i+1)+".png) no-repeat 0 0"
+    }
+    $(".buff li").mouseenter(function(){
+        var index=$(this).index()
+        if(index==0){
+            $(this).find(".navbox").css("background","url(images/nav"+(index+1)+".png) no-repeat 0 -121px").stop().animate({top:-15},300)
+        }else if(index<3){
+            $(this).find(".navbox").css("background","url(images/nav"+(index+1)+".png) no-repeat 0 -120px").stop().animate({top:-15},300)
+        }else{
+            $(this).find(".navbox").css("background","url(images/nav"+(index+2)+".png) no-repeat 0 0").stop().animate({top:-15},300)
+        }
+    })
+    $(".buff li").mouseleave(function(){
+        var index=$(this).index()
+        if(index==0){
+            $(this).find(".navbox").css("background","url(images/nav"+(index+1)+".png) no-repeat 0 0").stop().animate({top:0},50,function(){
+                $(this). animate({top:-7},50,function(){
+                    $(this). animate({top:0},50,function(){
+                        $(this).animate({top:-5},50,function(){
+                            $(this).animate({top:0},50,function(){
+                                $(this).animate({top:-3},50,function(){
+                                    $(this).animate({top:0},50)
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        }else if(index<3){
+            $(this).find(".navbox").css("background","url(images/nav"+(index+1)+".png) no-repeat 0 0").stop().animate({top:0},50,function(){
+                $(this). animate({top:-7},50,function(){
+                    $(this). animate({top:0},50,function(){
+                        $(this).animate({top:-5},50,function(){
+                            $(this).animate({top:0},50,function(){
+                                $(this).animate({top:-3},50,function(){
+                                    $(this).animate({top:0},50)
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        }else{
+            $(this).find(".navbox").css("background","url(images/nav"+(index+1)+".png) no-repeat 0 0").stop().animate({top:0},50,function(){
+                $(this). animate({top:-7},50,function(){
+                    $(this). animate({top:0},50,function(){
+                        $(this).animate({top:-5},50,function(){
+                            $(this).animate({top:0},50,function(){
+                                $(this).animate({top:-3},50,function(){
+                                    $(this).animate({top:0},50)
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        }
+    })
+</script>
